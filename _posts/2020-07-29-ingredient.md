@@ -54,10 +54,28 @@ print(sum(3))
 <img src="https://i.loli.net/2020/07/30/FbfqkdXGzs3rWvo.jpg" width = "300" height = "300" alt="avatar" align=center />
 ```
 
+![avatar_temp.jpg](https://i.loli.net/2020/07/30/FbfqkdXGzs3rWvo.jpg){:width="200px" height="200px"}
+
 ```md
-![avatar_temp.jpg](https://i.loli.net/2020/07/30/FbfqkdXGzs3rWvo.jpg)
-#图太大，就不显示了
+![avatar_temp.jpg](https://i.loli.net/2020/07/30/FbfqkdXGzs3rWvo.jpg){:width="200px" height="200px"}
 ```
+
+- Template for a picture card.
+<div class="card">
+  <div class="card__image">
+    <img class="image" src="https://github.com/Lisa-X/Lisa-X.github.io/raw/master/pics/avatar.jpg"/>
+  </div>
+  <div class="card__content">
+    <div class="card__header">
+      <h4>TRY PIC</h4>
+    </div>
+    <p>
+      This is my avatar pic.
+    </p>
+  </div>
+</div>
+
+
 <!--more-->
 
 
