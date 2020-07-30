@@ -37,7 +37,7 @@ author:
   type      : # "person" (default), "organization"
   name      : Lisa-X
   url       : 
-  avatar    : https://i.loli.net/2020/07/30/FbfqkdXGzs3rWvo.jpg # path or url of avatar image (square)
+  avatar    : https://github.com/Lisa-X/Lisa-X.github.io/raw/master/pics/avatar.jpg # https://i.loli.net/2020/07/30/FbfqkdXGzs3rWvo.jpg # path or url of avatar image (square)
   bio       : I am an amazing person.
   email     : lisa_xu1108@gmail.com
   facebook  : # "user_name" the last part of your profile url, e.g. https://www.facebook.com/user_name
