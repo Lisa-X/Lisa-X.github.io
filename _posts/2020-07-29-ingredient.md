@@ -16,8 +16,38 @@ Here are what you need to create a new post.
 
 - [Cute Markdown Emoji:heart_eyes:](https://gist.github.com/rxaviers/7360908)
 
-# Cheatsheet
+# Problems & Solutions
+## Change Logo
+Replace the logo.svg file in `.\Lisa-X.github.io\_includes\svg` <br>
 
+![logo_scn.png](https://github.com/Lisa-X/Lisa-X.github.io/raw/master/pics/screenshots/logo_scn.png)
+
+# Cheatsheet
+## Icons for Commit Message
+
+- Test 试验性操作，瞎搞<br>
+:no_mouth: `:no_mouth:` <br>
+:pig: `:pig:`
+
+- 搭建相关<br>
+:house: `:house:`
+
+- 美化相关<br>
+:sparkling_heart: `:sparkling_heart:`<br>
+:cherry_blossom: `:cherry_blossom:`
+
+- Edit a new post<br>
+:memo: `:memo:`<br>
+:pencil2: `:pencil2:`
+
+- Else 常用<br>
+:warning: `:warning:`<br>
+:camera: `:camera:` <br>
+:round_pushpin: `:round_pushpin:` <br>
+:bulb: `bulb`
+
+
+## Markdown Cheatsheet
 - **bold** `**bold**`
 
 - *intalic* `*italic*`
