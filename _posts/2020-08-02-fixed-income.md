@@ -345,6 +345,10 @@ The Arbitrage-Free Valuation Framework
   > $f_{2,1} = i_{2,LH} = i_{2,HL}$\\
   > :notebook: 例题见讲义102-103
 
+## Arbitrage-free Valuation
+
+![arbi-free valuation](https://github.com/Lisa-X/Lisa-X.github.io/raw/master/pics/fixed_income_pic/arbitrage_valuation_binominal_tree.png)
+
 
 
 
