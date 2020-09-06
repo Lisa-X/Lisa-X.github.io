@@ -14,13 +14,26 @@ Here are what you need to create a new post.
 
 - [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
-- [Cute Markdown Emoji:heart_eyes:](https://gist.github.com/rxaviers/7360908)
+- [Markdown Cheatsheet](https://wordpress.com/support/markdown-quick-reference/)
+
+- [Cute Markdown Emoji:heart_eyes:](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
+
+- [LaTeX / Mathematics](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+
+- [Formula Box](https://www.codecogs.com/latex/eqneditor.php)
+
+Here is a check list of sources to be learned.
+- [spec Markdown](https://spec-md.com/#)
+
+
 
 # Problems & Solutions
 ## Change Logo
 Replace the logo.svg file in `.\Lisa-X.github.io\_includes\svg` <br>
 
 ![logo_scn.png](https://github.com/Lisa-X/Lisa-X.github.io/raw/master/pics/screenshots/logo_scn.png)
+
+## Change Favicon
 
 # Cheatsheet
 ## Icons for Commit Message
@@ -41,11 +54,23 @@ Replace the logo.svg file in `.\Lisa-X.github.io\_includes\svg` <br>
 :pencil2: `:pencil2:`
 
 - Else 常用<br>
-:warning: `:warning:`<br>
-:camera: `:camera:` <br>
-:round_pushpin: `:round_pushpin:` <br>
-:bulb: `bulb`
+注意事项：:warning: `:warning:`<br>
+照片：:camera: `:camera:` <br>
+坐标：:round_pushpin: `:round_pushpin:` <br>
+想法idea：:bulb: `:bulb:`\\
+例题：:notebook: `:notebook:` 
 
+## Math Formula Cheatsheet
+- add space `$~$`
+- add underbrace/overbrace\\
+`$\underbrace{I_j (x) \ast \Delta_j(x,t_l,p)}_{I_j(x)(x-v_j(t,p))}dx$`\\
+$\underbrace{I_j (x) \ast \Delta_j(x,t_l,p)}_{I_j(x)(x-v_j(t,p))}dx$
+`$dr=\underbrace{a(b-r)}_{m(t)}dt +\underbrace{\sigma\sqrt{r}} _{n(t)}dz$`\\
+$dr=\underbrace{a(b-r)}_{m(t)}dt +\underbrace{\sigma\sqrt{r}} _{n(t)}dz$
+- font color\\
+`$\color{color wanted}{colored text}$`\\
+$\color{green}{The~font~color~should~be~green}$\\
+$\color{blue}{The~font~color~should~be~blue}$
 
 ## Markdown Cheatsheet
 - **bold** `**bold**`
