@@ -412,7 +412,7 @@ The Arbitrage-Free Valuation Framework
 
 - Effective Convexity
   
-  $EC = \frac{(V_- + V_+ -2V_0)/V_0}{{\Delta y}^2)}$
+  $EC = \frac{(V_- + V_+ -2V_0)/V_0}{\Delta y^2)}$
 
   - Straight bond have positive convexity 涨多跌少\\
     The increase in the value of an option-free bond is higher when rates fall than the decrease in value when rates increase by an equal amount.\\
