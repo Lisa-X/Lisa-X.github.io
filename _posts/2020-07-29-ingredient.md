@@ -73,6 +73,8 @@ $\color{green}{The~font~color~should~be~green}$\\
 $\color{blue}{The~font~color~should~be~blue}$
 
 ## Markdown Cheatsheet
+
+### Emphasis|Highlight|Note
 - **bold** `**bold**`
 
 - *intalic* `*italic*`
@@ -101,7 +103,21 @@ print(sum(3))
 > Here is a quoted line <br>
 > Another line
 
-- Add image
+### Table
+
+  Column 1 | Column 2 | Column 3
+  --- | :---: | ---:
+  **Things** | _Don't_ | [Need](http://makeuseof.com)
+  To | *__Look__* | `Pretty`
+
+  ```md
+  Column 1 | Column 2 | Column 3
+  --- | :---: | ---:
+  **Things** | _Don't_ | [Need](http://makeuseof.com)
+  To | *__Look__* | `Pretty`
+  ```
+
+### Add image
 
 <img src="https://i.loli.net/2020/07/30/FbfqkdXGzs3rWvo.jpg" width = "300" height = "300" alt="avatar" align=center />
 

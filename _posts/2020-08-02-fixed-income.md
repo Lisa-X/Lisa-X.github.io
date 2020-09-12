@@ -108,7 +108,7 @@ Term Structure and Interest Rates Dynamics
   > YTM = Par Rate = Coupon Rate :star:
 
 2. 计算\\
-   par rate $\Leftrightarrow$ spot rate $\Leftrightarrow$ forward rate\\
+   par rate $\Leftarrow$ spot rate $\Leftrightarrow$ forward rate\\
    - par rate $\Rightarrow$ spot rate\\
      - 1 yr: $P = Par = \frac{c+Par}{1+s_1}\Rightarrow \frac{c_1}{Par} = CR_1$
      - 2 yr: $P = Par = \frac{c}{1+s_1} + \frac{c+Par}{(1+s_2)^2} \Rightarrow \frac{c_2}{Par} = CR_2$
@@ -334,10 +334,10 @@ The Arbitrage-Free Valuation Framework
 - $i_{1,H} = i_{1,L} \times e^{2\sigma}$
 
 - $\sigma$ 的估计：
-  - historical $\rightarrow$ recent
-  - implied
+  - historical data (from the recent past) $\rightarrow \sigma$ 
+  - implied volatility
 
-- $\sigma \uparrow$ : spread out (分散)
+- $\sigma \uparrow$ : binominal interest rate tree spread out (更分散，间隔$e^{2\sigma}$更大)
 
 - $(1+s_2)^2/(1+s_1) = f_{1,1} = i_M$
   > 用spot rate求出的forward rate是middle rate,再用同期各状态间利率关系求利率二叉树其他利率。\\
@@ -347,7 +347,193 @@ The Arbitrage-Free Valuation Framework
 
 ## Arbitrage-free Valuation
 
-![arbi-free valuation](https://github.com/Lisa-X/Lisa-X.github.io/raw/master/pics/fixed_income_pic/arbitrage_valuation_binominal_tree.png)
+![arbi-free valuation](https://github.com/Lisa-X/Lisa-X.github.io/raw/master/pics/fixed_income_pic/arbitrage_valuation_binominal_tree.png){:width="600px"}
+
+## Monte Carlo Method
+- MBS估值: the valuation of MBS is **interest rate path dependent**.
+- MBS不能用二叉树估值，要用Monte Carlo模拟
+  > 二叉树两个节点之间的利率变化不确定，利率变化路径影响节点现金流\\
+  > eg: 同样是利率从6%降到4%，现金流会由于两点间利率变化差异而不同。如果不考虑路径，r下降会导致大量prepay；但是如果之间有一个更低的利率3%，又上升回4%，那么4%时不会有太多prepay。
+
+# Reading 34
+
+## Valuation of callable and putable bonds
+
+### Callable/Putable bonds
+
+- Callable Bond
+  - issuer: 有提前赎回的权利
+    > P > X --> X(执行价格)
+  - 债券价格P低，收益率y高
+
+- Putable Bond
+  - bond holder: 有提前卖出的权利
+    > P < X --> X
+  - 债券价格P高，收益率低
+
+> :note: Valuation using binomial tree
+
+### Valuation of an Embedded Option
+
+> $V_{bond} \rightarrow V_{option}$, 从债券角度对option估值
+- $V_{callable} = V_{pure} - V_{call}$
+- $V_{putable} = V_{pure} + V_{put}$
+
+### Effect of Interest Rate Volatility
+
+  $\sigma \rightarrow V_{callable}~\&~V_{putable}$
+
+ - $\sigma\uparrow, V_{option}, V_{call}, V_{put}\uparrow$
+ - $\sigma\uparrow, V_{callable}\downarrow$
+ - $\sigma\uparrow, V_{putable}\uparrow$
+
+### OAS (Option-Adjusted Spread)
+
+- $V_{call} = ZS - OAS$
+  > callable bond ZS > OAS\\
+  > 因为callable bond issuer有权利，需要给bond holder额外的补偿。OAS（option-adjusted spread）是剔除权利后的spread。
+
+- $V_{put} = OAS - ZS$
+  > $\sigma \uparrow$ --> $V_{call/put~option} \uparrow$, ZS不受影响 --> OAS of callable bond $downarrow$, OAS of putable bond $uparrow$.
+
+### Interest Rate Risk
+
+- Effective Duration
+
+  $ED = \frac{(V_- - V_+)/V_0}{2\Delta y}$
+
+  - Zero-coupon bond: effective duration $\approx$ maturity of the bond
+  > 从duration的平均还款期角度解释，只有到期时才有CF
+  - Fixed-rate bond: effective duration < maturity of the bond
+  - Float-rate bond: effective duration $\approx$ time (years) to next reset date
+  > 纯浮动利率债券，在每个reset date：CR=Libor市场利率，P=Par，价格回归到平价，只有在两个reset之间
+  - Callable/Putable bond: effective duration(with option) $\leq$ effective duration(straight)
+  > **straight** bond means the bond with similar characteristics without embedded option.
+
+- Effective Convexity
+  
+  $EC = \frac{(V_- + V_+ -2V_0)/V_0}{{\Delta y}^2)}$
+
+  - Straight bond have positive convexity 涨多跌少\\
+    The increase in the value of an option-free bond is higher when rates fall than the decrease in value when rates increase by an equal amount.\\
+    $ -\Delta y, +\Delta V_+$\\
+    $ +\Delta y, -\Delta V_-$\\
+    $\Delta V_+ > \Delta V_-$
+    
+- Key Rate Duration
+
+## Valuation of Floating-rate bond with Cap/Floor
+
+### Valuation of Floater with Cap/FLoor
+
+- $v_{capped} = V_{straight} - V_{cap}$
+- $v_{floored} = V_{straight} + V_{floor}$
+  > :note:basic P144
+
+### Ratchet Bond 棘轮债券
+
+- Ratchet bonds **offer extreme protection**: at the time of reset, the coupon can only decline, it can never exceed the existing level. --> the coupon "**ratchets down**"
+> CR(Coupon rate) 单向下降\\
+> ${CR}_t = {Libor}_t$\\
+> ${Cap}_t = {CR}_{t-1}$\\
+
+- At issuance, CR of a rachet bond is **much higher** than that of a standard bond.
+
+- **Contingent Put:** The investor has the right to put the bond back to the issuer at par whenever a coupon is reset.
+
+## Convertible Bond 可转债券
+
+- **Conversion ratio:** 每份债券可转股数(eg: 25:1)
+- **Conversion price** = **bond issue price** / Conversion ratio
+- **Market conversion price** = **Market price of bond** / Conversion ratio
+> 通常用来二级市场套利：如果立即在市场上买convertible bond并转换成stock的价格（market conversion price）低于即时股价$P_s，则可实现arbitrage$
+- **Conversion value** = Market price of stock $\times$ Conversion ratio
+- **Straight value:** estimated by the market value of non-convertible bond of the issuer with the same characterisitcs as the convertible bond but without the convertible option. 可转债除权后的价值
+- **The market conversion premium per share** = market conversion price - market price of stock
+- **Market conversion premium ratio** = market conversion premium per share / market price of stock
+
+# Reading 35
+
+## Modeling Credit Risk
+- **Expected exposure**: $Exposure_t = P_t + C_t$
+> Exposure在每时都有两部分：此时卖出债券的价格 $P_t$ 和coupon $C_t$\\
+> 4种情况计算Exposure：
+
+  |折现率DR | 票息率CR  |$~~~ P_t ~~~$|$~~~ C_t ~~~$|
+  |:----:|:---------:|:----:|:----:|
+  |同一个r|zero-coupon| $P_t$| 0 |
+  |       |coupon-paying| $P_t$| $C_t$|
+  |二叉树 | fixed-rate| $\bar{P_t}$| $C_t$|
+  |      | floating |  $\bar{P_t}$| $\bar{C_t}$|
+
+
+- **POD** (Probability of Default)
+- **RR** (Recovery Rate)
+- **LGD** (Loss given default)
+  - LGD(%) = 100% - RR
+  - LGD($) = Exposure - Recovery Value = Exposure * LGD(%)
+- **EL** (Expected Loss) = POD * LGD($)
+- **CVA** (Credit valuation adjusted) is the value of the credit risk in present value term\\
+  $CVA = \sum^{T}_{t=1} PV(EL_t)$
+  > CVA是信用风险损失的现值之和
+- :boom: **Fair value of corporate bond** = VND - CVA
+  > VND: the value for the corporate bond assuming no default. \\
+  > VND是假设无信用风险的债券价值，CVA是信用损失现值。
+
+# Reading 36
+
+## **CDS**(Credit Default Swap)
+
+### 基本术语&特征
+- Counterparties: credit protection buyer(short方) & credit protection seller（long方）
+  > :boom:CDS的long/short比较特殊
+- Reference entity & reference obligation
+- Standardized CDS in the market:
+  - 投资型investment-grade: 1%
+  - 投机型speculation/risky：5%
+
+### CDS Types
+- **Single-name CDS**: A CDS on a specific borrower (**reference entity**); (the contract specifies a **reference obligation**)
+  - 同级别或更高级别债券default, 也可以求偿
+  - **CTD**: Payoff of the CDS obiligation is determined by the **cheapest-to-deliver ** obligation.\\
+    > 赔付时按同级别最便宜的债券的水平（delivered at lowest cost; same seniority）\\
+    > eg: A:BBB(50%par) B:BBB(40%par) C:BB(30%par)\\
+    > 持有A债券和CDS，B债券default了，我也可以求偿；\\
+    > 赔付60%par（1-40%），因为**同级别**的B债券delivered价格更低
+
+- **Index CDS (CDX)**: involves a combination of borrowers. This type of instrument allows participants to take positions on the credit risk of a combination of companies.
+  - 保额平均分配
+  - $\rho \uparrow, risk \uparrow$
+    > Key factor: credit correlation\\
+
+### Price & Valuation
+- Factors influencing the price of CDS
+  - Probability of default
+  - Loss given default
+- Hazard rate
+- Premium leg
+- Protection leg
+- Upfront premium(计算)\\
+  Upfront premium $\approx$ (Credit spread - Fixed coupon) $\times$ Duration
+  > Upfront premium期初一次性付清，多退少补。由于市场上只有两种fixed coupon rate的标准化CDS，但保的bond credit spread和fixed coupon不相符。
+
+### 交易策略 | Application（5种）
+
+- **Naked trade:** buy CDS with no exposure to the reference entity (hold no bond)
+  > 相当于short债券，预期债券risk$\uparrow$，CDS价值$\uparrow$
+
+- **Long/short trade:** long one CDS + short another CDS
+  > eg: credit risk相似，credit spread不同的两个CDS
+
+- **Curve trade：**buy a CDS of one maturity + sell a CDS on the *same reference entity* with a *different maturity*.
+
+- **Basis trade:** A difference in the credit spread in bond market and CDS market.
+
+- **Synthetic CDO** (Collateralized Debt Obligation)
+  - CDO is created by assembling a portfolio of debt securities and issuing claims against the portfolio in the form of tranches.
+  - Synthetic CDO: a portfolio of default-free securities + **sell** a combination of credit default swaps
+  - If the cost of **synthetic CDO < CDO** --> arbitrage
+
 
 
 
