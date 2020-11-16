@@ -8,10 +8,11 @@ aside:
 ---
 <!--more-->
 
-#Keystroke Shortcut
+
+# Keystroke Shortcut
 $\color{green}{May~add~categories}$
 
-`Ctrl + 5`: strikethrough | 删除线
+`Ctrl + 5`: strikethrough 删除线
 
 `Ctrl + Alt + V`: Paste special
 <div class="card">
