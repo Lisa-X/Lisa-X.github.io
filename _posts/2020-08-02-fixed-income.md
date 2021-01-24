@@ -7,7 +7,7 @@ aside:
   toc: true
 ---
 
-Preparing for CFA Level 2 Exam in 2020.12
+Preparing for CFA Level 2 Exam in 2021.08
 
 <!--more-->
 
