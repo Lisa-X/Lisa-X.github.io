@@ -408,16 +408,16 @@ The Arbitrage-Free Valuation Framework
   - Float-rate bond: effective duration $\approx$ time (years) to next reset date
   > 纯浮动利率债券，在每个reset date：CR=Libor市场利率，P=Par，价格回归到平价，只有在两个reset之间
   - Callable/Putable bond: effective duration(with option) $\leq$ effective duration(straight)
-  > **straight** bond means the bond with similar characteristics without embedded option.
+  > **Straight** bond means the bond with similar characteristics without embedded option.
 
 - Effective Convexity
   
-  $EC = \frac{(V_- + V_+ -2V_0)/V_0}{\Delta y^2)}$
+  $EC = \frac{(V_- + V_+ -2V_0)/V_0}{\Delta y^2}$
 
   - Straight bond have positive convexity 涨多跌少\\
     The increase in the value of an option-free bond is higher when rates fall than the decrease in value when rates increase by an equal amount.\\
-    $ -\Delta y, +\Delta V_+$\\
-    $ +\Delta y, -\Delta V_-$\\
+    $ -\Delta y \Rightarrow +\Delta V_+$\\
+    $ +\Delta y \Rightarrow -\Delta V_-$\\
     $\Delta V_+ > \Delta V_-$
     
 - Key Rate Duration
@@ -441,7 +441,7 @@ The Arbitrage-Free Valuation Framework
 
 - **Contingent Put:** The investor has the right to put the bond back to the issuer at par whenever a coupon is reset.
 
-## Convertible Bond 可转债券
+## Convertible Bond | 可转债券
 
 - **Conversion ratio:** 每份债券可转股数(eg: 25:1)
 - **Conversion price** = **bond issue price** / Conversion ratio
