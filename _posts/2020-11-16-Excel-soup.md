@@ -24,8 +24,14 @@ $\color{green}{May~add~categories}$
       <h4>Paste Special Options</h4>
     </div>
     <p>
-      Skip blank cells
+      Skip blank cells</br>
       Add a number directly without formula
     </p>
   </div>
 </div>
+
+`Alt + D + L`: Data Validation
+
+# Formula
+`TRIM( )`: Remove all spaces from a text string except for single spaces between words
+
